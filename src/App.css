@@ -1,0 +1,46 @@
+.skeleton {
+  background: #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
+  height: 20px;
+  width: 70%;
+}
+
+.text {
+  height: 14px;
+}
+
+.short {
+  width: 50%;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 150px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+  animation: loading 1.2s infinite;
+}
+
+@keyframes loading {
+  to {
+    left: 100%;
+  }
+}
+
+.input {
+  @apply w-full bg-gray-900 border border-gray-800 px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
