@@ -1,4 +1,5 @@
 import { supabase } from "./supabase";
+import type { Job } from "../types/job";
 
 export const getOneJob = async (id: string) => {
   const { data, error } = await supabase
@@ -23,7 +24,10 @@ export const getJobs = async () => {
   return data;
 };
 
-export const updateJob = async (id, updates) => {
+export const updateJob = async (
+  id: string,
+  updates: Partial<Job>
+) => {
   const { data, error } = await supabase
     .from("jobs")
     .update(updates)
@@ -35,7 +39,7 @@ export const updateJob = async (id, updates) => {
   return data[0];
 };
 
-export const deleteJob = async (id) => {
+export const deleteJob = async (id: string) => {
   const { error } = await supabase
     .from("jobs")
     .delete()
